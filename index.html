@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IBrains | Intelligent Solutions for Real-World Problems</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Lottie Player -->
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary": "#ffffff",
+              "tertiary": "#ffb68f",
+              "primary-fixed-dim": "#c3c0ff",
+              "background": "#0a0c10",
+              "on-background": "#f1f4f7",
+              "error": "#ffb4ab",
+              "surface-container-lowest": "#0d1117",
+              "on-primary-container": "#e2dfff",
+              "on-tertiary-container": "#ffdbca",
+              "primary": "#635bff",
+              "secondary-fixed": "#314865",
+              "surface-variant": "#464555",
+              "inverse-primary": "#493ee5",
+              "secondary": "#b0c8eb",
+              "on-tertiary-fixed": "#331100",
+              "inverse-surface": "#f7fafd",
+              "on-surface": "#e1e2e6",
+              "surface": "#0a0c10",
+              "primary-container": "#493ee5",
+              "on-error": "#690005",
+              "tertiary-fixed": "#773200",
+              "primary-fixed": "#e2dfff",
+              "on-tertiary": "#561f00",
+              "on-surface-variant": "#c7c4d8",
+              "on-error-container": "#ffdad6",
+              "secondary-container": "#314865",
+              "surface-container": "#181c1e",
+              "surface-container-low": "#111418",
+              "secondary-fixed-dim": "#b0c8eb",
+              "on-secondary-fixed": "#d2e4ff",
+              "outline": "#9090a0",
+              "on-primary-fixed-variant": "#321ed2",
+              "surface-container-highest": "#22262a",
+              "outline-variant": "#464555",
+              "on-tertiary-fixed-variant": "#ffdbca",
+              "on-secondary": "#1a324e",
+              "inverse-on-surface": "#181c1e",
+              "on-secondary-container": "#d2e4ff",
+              "surface-tint": "#c3c0ff",
+              "on-primary-fixed": "#0f0069",
+              "tertiary-container": "#773200",
+              "surface-bright": "#343a3f",
+              "error-container": "#93000a",
+              "tertiary-fixed-dim": "#ffb68f",
+              "surface-container-high": "#1c2024",
+              "on-secondary-fixed-variant": "#b0c8eb",
+              "surface-dim": "#0a0c10"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-effect {
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        background: rgba(13, 17, 23, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .dark .glass-effect {
+        background: rgba(13, 17, 23, 0.7);
+      }
+      html:not(.dark) .glass-effect {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      html:not(.dark) .bg-surface { background-color: #f8fafc; }
+      html:not(.dark) .bg-surface-container-lowest { background-color: #ffffff; }
+      html:not(.dark) .bg-surface-container-low { background-color: #f1f5f9; }
+      html:not(.dark) .bg-surface-container-high { background-color: #e2e8f0; }
+      html:not(.dark) .bg-surface-container-highest { background-color: #cbd5e1; }
+      html:not(.dark) .text-on-surface { color: #0f172a; }
+      html:not(.dark) .text-on-surface-variant { color: #475569; }
+
+      .tonal-transition {
+        transition: background-color 0.3s ease;
+      }
+      .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: #635bff;
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      input:focus, textarea:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(99, 91, 255, 0.4);
+      }
+      lottie-player {
+        width: 100%;
+        height: 100%;
+      }
+      .modal-backdrop {
+        background: rgba(10, 12, 16, 0.8);
+        backdrop-filter: blur(8px);
+      }
+      html:not(.dark) .modal-backdrop {
+        background: rgba(255, 255, 255, 0.6);
+      }
+
+      /* Splash Screen Styles */
+      #splash-screen {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0a0c10;
+        transition: opacity 0.5s ease-out, visibility 0.5s;
+      }
+      html:not(.dark) #splash-screen {
+        background-color: #f8fafc;
+      }
+      .splash-content {
+        text-align: center;
+        animation: splash-pop 1s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      @keyframes splash-pop {
+        0% { transform: scale(0.9); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+      .fade-in {
+        animation: fadeIn 0.35s ease-out both;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased overflow-x-hidden transition-colors duration-300">
+<!-- Splash Screen -->
+<div id="splash-screen">
+<div class="splash-content flex flex-col items-center gap-6">
+<img alt="IBrains Logo" class="h-24 w-auto object-contain dark:brightness-100 dark:invert-0" src="logo.png"/>
+<h1 class="text-4xl font-bold tracking-tight text-on-surface">IBrains</h1>
+</div>
+</div>
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 glass-effect border-b border-outline-variant/10">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<a class="flex items-center gap-3" href="#">
+<img alt="IBrains Logo" class="h-10 w-auto object-contain dark:brightness-100 dark:invert-0" src="logo.png"/>
+<span class="text-xl font-bold tracking-tight text-on-surface">IBrains</span>
+</a>
+<div class="hidden md:flex items-center space-x-10">
+<a class="nav-link relative font-sans antialiased text-sm font-medium tracking-tight text-on-surface-variant hover:text-indigo-400 transition-colors duration-300" href="#products">Products</a>
+<a class="nav-link relative font-sans antialiased text-sm font-medium tracking-tight text-on-surface-variant hover:text-indigo-400 transition-colors duration-300" href="#features">Features</a>
+<a class="nav-link relative font-sans antialiased text-sm font-medium tracking-tight text-on-surface-variant hover:text-indigo-400 transition-colors duration-300" href="#how-it-works">How It Works</a>
+</div>
+<div class="flex items-center gap-4">
+<!-- Theme Toggle Button -->
+<button aria-label="Toggle Theme" class="p-2 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-primary transition-all active:scale-95" id="theme-toggle">
+<span class="material-symbols-outlined hidden" id="theme-toggle-dark-icon">light_mode</span>
+<span class="material-symbols-outlined" id="theme-toggle-light-icon">dark_mode</span>
+</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-xl font-medium text-sm transition-all duration-200 active:scale-95 hover:bg-primary/90 focus:ring-2 focus:ring-primary/50 focus:outline-none hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5" onclick="handleStartTrial()">Start Free Trial</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative pt-40 pb-24 md:pt-56 md:pb-40 overflow-hidden bg-surface">
+<div class="max-w-7xl mx-auto px-8 relative z-10 flex flex-col md:flex-row items-center gap-12">
+<div class="max-w-3xl flex-1" id="hero-content">
+<h1 class="text-5xl md:text-7xl font-bold tracking-tight text-on-surface mb-6 reveal-on-scroll">
+                Intelligent Solutions for <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-primary">Real-World Problems</span>
+</h1>
+<p class="text-xl md:text-2xl text-on-surface-variant mb-10 leading-relaxed font-light reveal-on-scroll" style="transition-delay: 100ms;">
+                Harness the power of the Intelligent Ether. We build AI-driven tools that dissolve complexity, empowering you to focus on what truly matters.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 reveal-on-scroll" style="transition-delay: 200ms;">
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-8 py-4 rounded-xl font-semibold text-lg shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-1 transition-all active:scale-95 focus:ring-2 focus:ring-white/20 focus:outline-none" onclick="handleStartTrial()">
+                    Start Free Trial
+                </button>
+<button class="bg-surface-container-high text-on-surface px-8 py-4 rounded-xl font-semibold text-lg hover:bg-surface-container-highest hover:-translate-y-1 transition-all active:scale-95 focus:ring-2 focus:ring-primary/20 focus:outline-none" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">
+                    Explore Products
+                </button>
+</div>
+</div>
+<div class="flex-1 w-full max-w-md md:max-w-xl reveal-on-scroll aspect-square" style="transition-delay: 300ms;">
+<!-- Hero Lottie Animation -->
+<lottie-player autoplay="" background="transparent" loop="" speed="1" src="https://assets2.lottiefiles.com/packages/lf20_96bovdur.json"></lottie-player>
+</div>
+</div>
+<!-- Decorative Ether Background Element -->
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+<div class="w-full h-full bg-gradient-to-bl from-primary/40 to-transparent blur-3xl rounded-full translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+</div>
+</header>
+<!-- Trust / Stats Section -->
+<section class="py-20 bg-surface-container-low border-y border-outline-variant/5">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12">
+<div class="text-center md:text-left reveal-on-scroll">
+<div class="text-4xl md:text-5xl font-bold text-indigo-400 mb-2">10k+</div>
+<div class="text-on-surface-variant font-medium">Students Empowered</div>
+</div>
+<div class="text-center md:text-left reveal-on-scroll" style="transition-delay: 100ms;">
+<div class="text-4xl md:text-5xl font-bold text-indigo-400 mb-2">40%</div>
+<div class="text-on-surface-variant font-medium">Productivity Boost</div>
+</div>
+<div class="text-center md:text-left reveal-on-scroll" style="transition-delay: 200ms;">
+<div class="text-4xl md:text-5xl font-bold text-indigo-400 mb-2">500+</div>
+<div class="text-on-surface-variant font-medium">Enterprise Clients</div>
+</div>
+<div class="text-center md:text-left reveal-on-scroll" style="transition-delay: 300ms;">
+<div class="text-4xl md:text-5xl font-bold text-indigo-400 mb-2">99.9%</div>
+<div class="text-on-surface-variant font-medium">Uptime Guarantee</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Products Section -->
+<section class="py-32 bg-surface" id="products">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-20 text-center reveal-on-scroll">
+<h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-4 text-on-surface">Our Ecosystem</h2>
+<p class="text-on-surface-variant text-xl max-w-2xl mx-auto">Powerful tools designed to work in harmony, scaling with your ambition.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10" id="product-grid">
+<!-- EduFlex -->
+<div class="group cursor-pointer bg-surface-container-lowest rounded-2xl p-10 transition-all duration-500 border border-outline-variant/10 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 reveal-on-scroll" onclick="openProductModal('eduflex')">
+<div class="w-20 h-20 bg-primary-fixed-dim/10 flex items-center justify-center rounded-2xl mb-10 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-primary text-4xl">school</span>
+</div>
+<h3 class="text-3xl font-bold mb-4 text-on-surface">EduFlex</h3>
+<p class="text-on-surface-variant mb-10 leading-relaxed text-lg">
+                    AI-driven adaptive learning paths that adjust in real-time to student performance, maximizing retention and engagement.
+                </p>
+<div class="w-full h-72 overflow-hidden rounded-xl bg-surface-container-high flex items-center justify-center relative">
+<img alt="EduFlex Visualization" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZqihDaZfF1RokI29guLChi_YK3HI5kVvlc6AXA0FqIKHBxbg0xfskhDopvZRIX5O6nost2RTE0WLu5mCAoQEVvMMGM4CdKkIxH2Q7VBo-X804FOflFsDbjUEfzzyDUejN59M-8TwcFDPVhHPCduB6OCfjvA7dnXEFvRfuhs2E87_5fr4Mt46R7HuvTxox7dJA0ES21yYI9a7IfZXmov3GmM2TbalJhi8nRdiZhtb4kaUA0-UxNbR14tSzEATqhN3yN7yfiCqOb2Me"/>
+<lottie-player autoplay="" background="transparent" class="relative z-10" loop="" speed="1" src="https://assets2.lottiefiles.com/packages/lf20_0yfsb3fn.json"></lottie-player>
+</div>
+</div>
+<!-- Handy Meet -->
+<div class="group cursor-pointer bg-surface-container-lowest rounded-2xl p-10 transition-all duration-500 border border-outline-variant/10 hover:border-secondary/30 hover:shadow-2xl hover:shadow-secondary/5 reveal-on-scroll" onclick="openProductModal('handymeet')" style="transition-delay: 100ms;">
+<div class="w-20 h-20 bg-secondary-fixed/10 flex items-center justify-center rounded-2xl mb-10 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-secondary text-4xl">groups</span>
+</div>
+<h3 class="text-3xl font-bold mb-4 text-on-surface">Handy Meet</h3>
+<p class="text-on-surface-variant mb-10 leading-relaxed text-lg">
+                    Smart meeting assistant that automatically generates action items, summaries, and sentiment analysis from your video calls.
+                </p>
+<div class="w-full h-72 overflow-hidden rounded-xl bg-surface-container-high flex items-center justify-center relative">
+<img alt="Handy Meet Visualization" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6KsaOxs7O5kaMS0KcTOggFe6zH5ScHs4keiKB2vuMfcoWwV05lKgPGIi4oYJ6iWUJzLK_BySfOQoUszUsTEMxhJSQ-hc5kP69JInRCxC-Y8_fKYGeoJxS1LXpKyeKxQ3sdYMbjGlVZO-CHiC87TynYo7kgjUBtEfuHEt851d9ZkgFdl4LQ459fIEJ4ywAVhzG7K64HtLEEq1uZojL2NdAP46n344Fh2OJxj9YMj15ZJAr5Wow5hBuNDCkCc_6UT9rqyO9mQTwpg9z"/>
+<lottie-player autoplay="" background="transparent" class="relative z-10" loop="" speed="1" src="https://assets4.lottiefiles.com/packages/lf20_5tkzkblw.json"></lottie-player>
+</div>
+</div>
+<!-- SmartApply -->
+<div class="group cursor-pointer bg-surface-container-lowest rounded-2xl p-10 transition-all duration-500 border border-outline-variant/10 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 reveal-on-scroll" onclick="openProductModal('smartapply')">
+<div class="w-20 h-20 bg-primary-fixed-dim/10 flex items-center justify-center rounded-2xl mb-10 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-primary-fixed-dim text-4xl">work</span>
+</div>
+<h3 class="text-3xl font-bold mb-4 text-on-surface">SmartApply</h3>
+<p class="text-on-surface-variant mb-10 leading-relaxed text-lg">
+                    AI job application tool that tailors your profile for every role, ensuring you stand out to recruiters and ATS systems.
+                </p>
+<div class="w-full h-72 overflow-hidden rounded-xl bg-surface-container-high flex items-center justify-center relative">
+<img alt="SmartApply Visualization" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0yUcjTetGHFjngC4QEF5DE2VFdT_7xloBZrgsrtnriWG9TjWHn55TMS7u1Pi_ysqFcP3eCmbphjl452VROKSBiin-dblFMJObdBjkKSvkzBwO02ylYWAs7HnaPjMpOw6FiOlrwlgKKtznmgwLVZAXr3JusOdp-FE2B8NtRUx2tvGxbEtgQRxdEvdZtMdxYMU_qUbA0VLib7rgVHJ-4ydTA9_aJtnqm0lLRZ7Y2wcfoAfc_kz3skXzAUENRQgSJFliPPsEbNngd3hb"/>
+<lottie-player autoplay="" background="transparent" class="relative z-10" loop="" speed="1" src="https://assets3.lottiefiles.com/packages/lf20_qp1q7mct.json"></lottie-player>
+</div>
+</div>
+<!-- Automated Caption Generator -->
+<div class="group cursor-pointer bg-surface-container-lowest rounded-2xl p-10 transition-all duration-500 border border-outline-variant/10 hover:border-tertiary/30 hover:shadow-2xl hover:shadow-tertiary/5 reveal-on-scroll" onclick="openProductModal('autocaption')" style="transition-delay: 100ms;">
+<div class="w-20 h-20 bg-tertiary-fixed/10 flex items-center justify-center rounded-2xl mb-10 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-tertiary text-4xl">closed_caption</span>
+</div>
+<h3 class="text-3xl font-bold mb-4 text-on-surface">Auto-Caption</h3>
+<p class="text-on-surface-variant mb-10 leading-relaxed text-lg">
+                    Instant, high-accuracy video captions in 50+ languages. Perfect for creators looking to reach a global audience.
+                </p>
+<div class="w-full h-72 overflow-hidden rounded-xl bg-surface-container-high flex items-center justify-center relative">
+<img alt="Auto-Caption Visualization" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwTzexBm50LJNJ8n16P3AtVBbjRTj7t4QBsx0vRd4DTmbnkV0o2jimEykUNSSf5WElPcjJTHVPTl4Uxjl6tFjfbLOAsEphFw7O1_j3eI6QDnGmViZimZ2YzWYeo44pTCCTqGBk3FlcszyzElh2hhhbi_xmhJdbhgf8L629UwqPOx9fCjUZg4uR83nQgs4_J7Z3aqdYm1FRBNBFuWlPB8I-UX8-vaEgldaQ2W8Df8ZfcBtjSHmDDr4N0YKIXJeu9F00GttO9bzegRtv"/>
+<lottie-player autoplay="" background="transparent" class="relative z-10" loop="" speed="1" src="https://assets1.lottiefiles.com/packages/lf20_3rwasyjy.json"></lottie-player>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="py-32 bg-surface-container-low" id="features">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col lg:flex-row gap-20 items-center">
+<div class="flex-1 reveal-on-scroll">
+<h2 class="text-5xl font-bold tracking-tight mb-10 text-on-surface">Engineered for Scale</h2>
+<div class="space-y-12">
+<div class="flex gap-6 group">
+<div class="w-16 h-16 flex-shrink-0 flex items-center justify-center bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-all duration-300">
+<span class="material-symbols-outlined text-indigo-400 text-3xl">insights</span>
+</div>
+<div>
+<h4 class="text-2xl font-bold mb-2 group-hover:text-indigo-400 transition-colors text-on-surface">AI-Powered Insights</h4>
+<p class="text-on-surface-variant text-lg">Go beyond raw data. Our models provide actionable intelligence that drives decision making with surgical precision.</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="w-16 h-16 flex-shrink-0 flex items-center justify-center bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-all duration-300">
+<span class="material-symbols-outlined text-indigo-400 text-3xl">speed</span>
+</div>
+<div>
+<h4 class="text-2xl font-bold mb-2 group-hover:text-indigo-400 transition-colors text-on-surface">Infinite Scalability</h4>
+<p class="text-on-surface-variant text-lg">Whether you are a solo entrepreneur or a Fortune 500, our cloud infrastructure grows with your data demands effortlessly.</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="w-16 h-16 flex-shrink-0 flex items-center justify-center bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-all duration-300">
+<span class="material-symbols-outlined text-indigo-400 text-3xl">extension</span>
+</div>
+<div>
+<h4 class="text-2xl font-bold mb-2 group-hover:text-indigo-400 transition-colors text-on-surface">Modular Solutions</h4>
+<p class="text-on-surface-variant text-lg">Pick exactly what you need. Our components integrate seamlessly with your existing tech stack via robust APIs.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 relative reveal-on-scroll" style="transition-delay: 200ms;">
+<div class="aspect-square w-full relative z-10 overflow-hidden rounded-3xl border border-white/5 bg-surface-container-highest">
+<!-- Feature Lottie Animation -->
+<lottie-player autoplay="" background="transparent" loop="" speed="0.8" src="https://assets1.lottiefiles.com/packages/lf20_iwmd6pyr.json" style="transform: scale(1.1);"></lottie-player>
+</div>
+<div class="absolute -inset-10 bg-indigo-500/10 blur-[100px] rounded-full -z-0"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works Section -->
+<section class="py-32 bg-surface" id="how-it-works">
+<div class="max-w-7xl mx-auto px-8 text-center">
+<h2 class="text-4xl md:text-6xl font-bold mb-20 reveal-on-scroll text-on-surface">Three Steps to Intelligence</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+<div class="relative reveal-on-scroll">
+<div class="text-[12rem] font-bold text-primary/5 absolute -top-32 left-1/2 -translate-x-1/2 z-0 select-none">1</div>
+<div class="relative z-10">
+<h4 class="text-3xl font-bold mb-6 text-on-surface">Select Product</h4>
+<p class="text-on-surface-variant text-lg leading-relaxed">Choose the tool that fits your specific needs from our curated catalog of AI solutions.</p>
+</div>
+</div>
+<div class="relative reveal-on-scroll" style="transition-delay: 150ms;">
+<div class="text-[12rem] font-bold text-primary/5 absolute -top-32 left-1/2 -translate-x-1/2 z-0 select-none">2</div>
+<div class="relative z-10">
+<h4 class="text-3xl font-bold mb-6 text-on-surface">Start Trial</h4>
+<p class="text-on-surface-variant text-lg leading-relaxed">Get instant access to full features with a 14-day free trial. No credit card required to start.</p>
+</div>
+</div>
+<div class="relative reveal-on-scroll" style="transition-delay: 300ms;">
+<div class="text-[12rem] font-bold text-primary/5 absolute -top-32 left-1/2 -translate-x-1/2 z-0 select-none">3</div>
+<div class="relative z-10">
+<h4 class="text-3xl font-bold mb-6 text-on-surface">Instant Results</h4>
+<p class="text-on-surface-variant text-lg leading-relaxed">See immediate improvements in productivity and clarity across your professional workflows.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-32 bg-surface-container-low" id="contact">
+<div class="max-w-3xl mx-auto px-8">
+<div class="text-center mb-16 reveal-on-scroll">
+<h2 class="text-4xl md:text-5xl font-bold mb-6 text-on-surface">Get in Touch</h2>
+<p class="text-on-surface-variant text-lg">Have questions? Reach out to our team at <a class="font-medium text-indigo-400 hover:underline" href="mailto:ibrains.it@gmail.com">ibrains.it@gmail.com</a></p>
+</div>
+<div class="relative reveal-on-scroll" style="transition-delay: 100ms;">
+<form class="bg-surface-container-lowest p-8 md:p-14 rounded-3xl shadow-2xl border border-white/5 space-y-8 transition-all duration-500" id="contactForm" onsubmit="handleContactSubmit(event)">
+<div class="space-y-2">
+<label class="block font-label text-sm font-medium text-on-surface-variant ml-1" for="contactName">Name</label>
+<input class="w-full bg-surface-container-high border border-outline-variant/10 rounded-2xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all placeholder:text-outline/40" id="contactName" minlength="2" placeholder="Your full name" required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block font-label text-sm font-medium text-on-surface-variant ml-1" for="contactEmail">Email</label>
+<input class="w-full bg-surface-container-high border border-outline-variant/10 rounded-2xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all placeholder:text-outline/40" id="contactEmail" placeholder="you@company.com" required="" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="block font-label text-sm font-medium text-on-surface-variant ml-1" for="contactMessage">Message</label>
+<textarea class="w-full bg-surface-container-high border border-outline-variant/10 rounded-2xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all placeholder:text-outline/40" id="contactMessage" minlength="10" placeholder="How can we help you thrive?" required="" rows="5"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary font-bold py-5 rounded-2xl hover:bg-indigo-500 transition-all shadow-lg shadow-primary/20 active:scale-[0.98] focus:ring-2 focus:ring-white/20 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed group" id="submitBtn" type="submit">
+<span class="flex items-center justify-center gap-2" id="btnText">
+                        Send Message
+                        <span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">send</span>
+</span>
+</button>
+<div class="text-center text-xs text-on-surface-variant/60 pt-4 uppercase tracking-widest font-medium">
+                    Secured submission to ibrains.it@gmail.com
+                </div>
+</form>
+<!-- Success State Card -->
+<div class="hidden bg-surface-container-lowest rounded-3xl flex flex-col items-center justify-center p-12 text-center fade-in duration-500 border border-indigo-500/20 shadow-2xl" id="successMessage">
+<div class="w-24 h-24 bg-green-500/10 text-green-400 rounded-full flex items-center justify-center mb-8 border border-green-500/20">
+<span class="material-symbols-outlined text-6xl">check_circle</span>
+</div>
+<h3 class="text-3xl font-bold mb-4 text-on-surface">Message Transmitted!</h3>
+<p class="text-on-surface-variant text-lg mb-10 max-w-sm">Thank you for reaching out. Your message has been sent to <span class="font-bold text-primary">ibrains.it@gmail.com</span>. Our intelligent agents will respond within 24 hours.</p>
+<button class="text-indigo-400 font-bold hover:text-indigo-300 transition-colors flex items-center gap-2 text-lg" onclick="resetForm()">
+<span class="material-symbols-outlined">restart_alt</span>
+                    Send another message
+                </button>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Final Section -->
+<section class="py-40 relative overflow-hidden bg-surface">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary-container/10 to-transparent"></div>
+<div class="max-w-7xl mx-auto px-8 relative z-10 text-center">
+<h2 class="text-5xl md:text-7xl font-bold mb-10 tracking-tight text-on-surface reveal-on-scroll">Join the Future of Work</h2>
+<p class="text-xl md:text-3xl text-on-surface-variant mb-16 max-w-3xl mx-auto font-light reveal-on-scroll" style="transition-delay: 100ms;">Experience the convergence of human creativity and machine intelligence with IBrains.</p>
+<button class="bg-primary text-on-primary px-14 py-6 rounded-2xl font-bold text-2xl shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all hover:bg-primary/90 focus:ring-4 focus:ring-primary/20 focus:outline-none reveal-on-scroll" onclick="handleStartTrial()" style="transition-delay: 200ms;">
+            Get Started for Free
+        </button>
+</div>
+<!-- Abstract Decoration -->
+<div class="absolute -bottom-48 -left-48 w-[600px] h-[600px] bg-primary/20 blur-[150px] rounded-full"></div>
+<div class="absolute -top-48 -right-48 w-[600px] h-[600px] bg-indigo-500/10 blur-[150px] rounded-full"></div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-20 px-8 border-t border-outline-variant/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<div class="space-y-6">
+<a class="flex items-center gap-3" href="#">
+<img alt="IBrains Logo" class="h-12 w-auto object-contain dark:brightness-100 dark:invert-0" src="logo.png"/>
+<span class="text-2xl font-bold tracking-tight text-on-surface">IBrains</span>
+</a>
+<p class="font-sans text-base text-on-surface-variant max-w-xs leading-relaxed">Intelligent solutions bridging the gap between human potential and artificial intelligence.</p>
+</div>
+<div>
+<h5 class="font-bold text-on-surface mb-6 text-lg">Products</h5>
+<ul class="space-y-4">
+<li><a class="nav-link relative inline-block font-sans text-sm text-on-surface-variant hover:text-indigo-400 transition-colors duration-200" href="#products" onclick="openProductModal('eduflex')">EduFlex</a></li>
+<li><a class="nav-link relative inline-block font-sans text-sm text-on-surface-variant hover:text-indigo-400 transition-colors duration-200" href="#products" onclick="openProductModal('handymeet')">Handy Meet</a></li>
+<li><a class="nav-link relative inline-block font-sans text-sm text-on-surface-variant hover:text-indigo-400 transition-colors duration-200" href="#products" onclick="openProductModal('smartapply')">SmartApply</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-on-surface mb-6 text-lg">Company</h5>
+<ul class="space-y-4">
+<li><a class="nav-link relative inline-block font-sans text-sm text-on-surface-variant hover:text-indigo-400 transition-colors duration-200" href="#features">Features</a></li>
+<li><a class="nav-link relative inline-block font-sans text-sm text-on-surface-variant hover:text-indigo-400 transition-colors duration-200" href="#how-it-works">How It Works</a></li>
+<li><a class="nav-link relative inline-block font-sans text-sm text-on-surface-variant hover:text-indigo-400 transition-colors duration-200" href="#contact">Contact</a></li>
+<li><a class="nav-link relative inline-block font-sans text-sm text-on-surface-variant hover:text-indigo-400 transition-colors duration-200" href="#">Privacy</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-on-surface mb-6 text-lg">Connect</h5>
+<p class="font-sans text-sm text-on-surface-variant mb-6 leading-relaxed">Stay updated with our intelligence newsletter.</p>
+<div class="flex">
+<input class="w-full bg-surface-container-high border border-outline-variant/10 rounded-l-xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary focus:border-primary placeholder:text-outline/40 text-on-surface" placeholder="Email address" type="email"/>
+<button class="bg-primary text-on-primary px-5 py-3 rounded-r-xl hover:bg-indigo-500 transition-all active:scale-95 focus:ring-2 focus:ring-white/10 focus:outline-none">
+<span class="material-symbols-outlined text-xl">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-20 pt-10 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center font-sans text-sm text-on-surface-variant/60 gap-4">
+<div>© 2024 IBrains. All rights reserved.</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">mail</span>
+            ibrains.it@gmail.com
+        </div>
+</div>
+</footer>
+<!-- Product Details Modal -->
+<div class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 md:p-8 overflow-y-auto" id="productModal">
+<div class="modal-backdrop fixed inset-0 transition-opacity" onclick="closeProductModal()"></div>
+<div class="relative bg-surface-container-lowest w-full max-w-4xl rounded-3xl shadow-2xl border border-outline-variant/10 overflow-hidden transform transition-all scale-95 opacity-0 duration-300" id="modalContainer">
+<div class="flex flex-col md:flex-row h-full">
+<!-- Modal Media Side -->
+<div class="w-full md:w-5/12 bg-surface-container-low flex items-center justify-center p-12 relative overflow-hidden border-b md:border-b-0 md:border-r border-outline-variant/10">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="w-full h-full bg-gradient-to-br from-primary/30 to-transparent blur-3xl rounded-full"></div>
+</div>
+<div class="relative z-10 w-full" id="modalIconContainer">
+<!-- Icon/Lottie will be injected here -->
+</div>
+</div>
+<!-- Modal Content Side -->
+<div class="w-full md:w-7/12 p-8 md:p-14 flex flex-col justify-center">
+<button class="absolute top-6 right-6 text-on-surface-variant hover:text-primary transition-colors active:scale-90" onclick="closeProductModal()">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+<div class="mb-2">
+<span class="text-primary font-bold text-sm uppercase tracking-widest" id="modalCategory">AI Solutions</span>
+</div>
+<h3 class="text-4xl md:text-5xl font-bold text-on-surface mb-6 tracking-tight" id="modalTitle">Product Title</h3>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-10" id="modalDescription">Detailed product description goes here...</p>
+<div class="flex flex-col sm:flex-row gap-4 mt-auto">
+<button class="flex-1 bg-primary text-on-primary font-bold py-4 rounded-2xl hover:bg-indigo-500 transition-all shadow-lg shadow-primary/20 active:scale-95 focus:ring-2 focus:ring-white/20 focus:outline-none text-center" onclick="handleStartTrial()">
+                        Try Now
+                    </button>
+<button class="flex-1 bg-surface-container-high text-on-surface font-semibold py-4 rounded-2xl hover:bg-surface-container-highest transition-all active:scale-95 border border-outline-variant/10 text-center" onclick="closeProductModal()">
+                        Learn More
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+    // Splash Screen Handler
+    window.addEventListener('DOMContentLoaded', () => {
+        const splash = document.getElementById('splash-screen');
+        setTimeout(() => {
+            splash.style.opacity = '0';
+            splash.style.visibility = 'hidden';
+            setTimeout(() => {
+                splash.remove();
+            }, 500);
+        }, 1800); // Display for ~1.8 seconds
+    });
+
+    // Theme Switcher Logic
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const htmlEl = document.documentElement;
+
+    function updateIcons() {
+        if (htmlEl.classList.contains('dark')) {
+            themeToggleDarkIcon.classList.remove('hidden');
+            themeToggleLightIcon.classList.add('hidden');
+        } else {
+            themeToggleDarkIcon.classList.add('hidden');
+            themeToggleLightIcon.classList.remove('hidden');
+        }
+    }
+
+    updateIcons();
+
+    themeToggleBtn.addEventListener('click', function() {
+        if (htmlEl.classList.contains('dark')) {
+            htmlEl.classList.remove('dark');
+            localStorage.setItem('color-theme', 'light');
+        } else {
+            htmlEl.classList.add('dark');
+            localStorage.setItem('color-theme', 'dark');
+        }
+        updateIcons();
+    });
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+    // Product Modal Logic
+    const productData = {
+        eduflex: {
+            title: "EduFlex",
+            category: "Learning Infrastructure",
+            description: "An AI-powered adaptive learning platform designed to provide personalized paths and precision skill tracking. It harnesses real-time analytics to adjust learning material based on individual student performance, maximizing retention and overall engagement through intelligent automation.",
+            lottie: "https://assets10.lottiefiles.com/packages/lf20_DMg9v1.json"
+        },
+        handymeet: {
+            title: "Handy Meet",
+            category: "Productivity",
+            description: "Your next-generation smart meeting assistant. It provides automated summaries, deep insights, and sentiment analysis from your video conferences. Never miss an action item again as our AI distills complex conversations into actionable intelligence.",
+            lottie: "https://assets5.lottiefiles.com/private_files/lf30_m6j5ig3u.json"
+        },
+        smartapply: {
+            title: "SmartApply",
+            category: "Career Growth",
+            description: "An AI-based job application assistant built for modern professionals. It offers sophisticated resume optimization and tailored application profiles for every role, ensuring you stand out to both recruiters and ATS systems with surgical precision.",
+            lottie: "https://assets10.lottiefiles.com/packages/lf20_m6cu9sn9.json"
+        },
+        autocaption: {
+            title: "Auto-Caption",
+            category: "Content Creation",
+            description: "A professional-grade AI tool for high-accuracy video captions. Supporting over 50 languages, it empowers creators to bridge global communication gaps instantly. Perfect for making content accessible, searchable, and engaging on any platform.",
+            lottie: "https://assets8.lottiefiles.com/packages/lf20_z9ed2v9p.json"
+        }
+    };
+
+    function openProductModal(productId) {
+        const data = productData[productId];
+        if (!data) return;
+
+        document.getElementById('modalTitle').textContent = data.title;
+        document.getElementById('modalCategory').textContent = data.category;
+        document.getElementById('modalDescription').textContent = data.description;
+        
+        const iconContainer = document.getElementById('modalIconContainer');
+        iconContainer.innerHTML = `<lottie-player autoplay background="transparent" loop speed="1" src="${data.lottie}" style="width: 100%; height: 300px;"></lottie-player>`;
+
+        const modal = document.getElementById('productModal');
+        const container = document.getElementById('modalContainer');
+        
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        
+        setTimeout(() => {
+            container.classList.remove('scale-95', 'opacity-0');
+            container.classList.add('scale-100', 'opacity-100');
+        }, 10);
+    }
+
+    function closeProductModal() {
+        const modal = document.getElementById('productModal');
+        const container = document.getElementById('modalContainer');
+        
+        container.classList.remove('scale-100', 'opacity-100');
+        container.classList.add('scale-95', 'opacity-0');
+        
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+            document.getElementById('modalIconContainer').innerHTML = '';
+        }, 300);
+    }
+
+    // Escape key to close modal
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeProductModal();
+    });
+
+    // Event Handlers
+    function handleStartTrial() {
+        const btn = event.currentTarget;
+        const originalText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<span class="flex items-center justify-center gap-2"><svg class="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Initializing...</span>';
+        
+        setTimeout(() => {
+            alert("Welcome to the IBrains Intelligence Cloud! Your trial is being provisioned. Check your email for onboarding details.");
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        }, 1500);
+    }
+
+    async function handleContactSubmit(event) {
+        event.preventDefault();
+        const btn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const form = document.getElementById('contactForm');
+        const success = document.getElementById('successMessage');
+
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        const name = document.getElementById('contactName').value.trim();
+        const fromEmail = document.getElementById('contactEmail').value.trim();
+        const message = document.getElementById('contactMessage').value.trim();
+
+        btn.disabled = true;
+        btnText.innerHTML = '<span class="flex items-center justify-center gap-2"><svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Preparing email...</span>';
+
+        const recipient = 'ibrains.it@gmail.com';
+        const subject = encodeURIComponent(`Customer inquiry from ${name || fromEmail}`);
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${fromEmail}\n\nMessage:\n${message}`);
+        const mailtoUrl = `mailto:${recipient}?subject=${subject}&body=${body}`;
+
+        window.location.href = mailtoUrl;
+
+        // Show success UI after redirect attempt.
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        form.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+        setTimeout(() => {
+            form.classList.add('hidden');
+            success.classList.remove('hidden');
+        }, 500);
+    }
+
+    function resetForm() {
+        const form = document.getElementById('contactForm');
+        const success = document.getElementById('successMessage');
+        const btn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+
+        success.classList.add('hidden');
+        form.classList.remove('hidden', 'opacity-0', 'scale-95');
+        form.classList.add('opacity-1', 'scale-100', 'pointer-events-auto');
+        form.reset();
+        btn.disabled = false;
+        btnText.innerHTML = 'Send Message <span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">send</span>';
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const target = document.querySelector(targetId);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
+</body></html>
