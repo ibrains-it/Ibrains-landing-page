@@ -244,26 +244,44 @@
             <img alt="IBrains" class="h-10 w-auto object-contain group-hover:scale-105 transition-transform" src="logo.png" width="676" height="369"/>
             <span class="font-display text-xl font-bold tracking-tight text-on-surface group-hover:text-primary transition-colors">IBrains</span>
         </a>
-        <div class="hidden md:flex items-center space-x-10">
+        <div class="hidden lg:flex items-center space-x-8">
             <a class="font-medium text-sm text-on-surface-variant hover:text-primary transition-colors" href="#products">Services</a>
+            <a class="font-medium text-sm text-on-surface-variant hover:text-primary transition-colors" href="#agents">Agents</a>
             <a class="font-medium text-sm text-on-surface-variant hover:text-primary transition-colors" href="#features">Why IBrains</a>
             <a class="font-medium text-sm text-on-surface-variant hover:text-primary transition-colors" href="#faq">FAQ</a>
             <a class="font-medium text-sm text-on-surface-variant hover:text-primary transition-colors" href="#contact">Contact</a>
         </div>
         <div class="flex items-center gap-3">
+            <div class="hidden lg:flex items-center gap-2 mr-1">
+                <a href="https://www.linkedin.com/company/ibrains-ai/" target="_blank" rel="noopener noreferrer" aria-label="IBrains on LinkedIn" class="w-9 h-9 rounded-full bg-[#0A66C2] flex items-center justify-center text-white hover:opacity-90 transition-opacity">
+                    <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="https://wa.me/919390425742?text=Hi%20IBrains!%20I'd%20like%20to%20try%20one%20of%20your%20AI%20agents." target="_blank" rel="noopener noreferrer" aria-label="Chat with IBrains on WhatsApp" class="w-9 h-9 rounded-full bg-[#25D366] flex items-center justify-center text-white hover:opacity-90 transition-opacity">
+                    <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor" aria-hidden="true"><path d="M12.001 2C6.478 2 2 6.478 2 12c0 1.86.5 3.6 1.375 5.099L2 22l4.978-1.353A9.94 9.94 0 0 0 12.001 22C17.523 22 22 17.523 22 12S17.523 2 12.001 2zm5.471 12.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.05-.52-.099-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.05 3.13 4.97 4.27 2.92 1.14 2.92.76 3.446.71.526-.05 1.706-.698 1.955-1.372.24-.653.24-1.213.173-1.372-.067-.16-.297-.198-.594-.347z"/></svg>
+                </a>
+            </div>
             <button class="hidden sm:inline-flex bg-primary text-white px-5 md:px-6 py-2.5 rounded-xl font-semibold text-sm hover:bg-primary-hover transition-all hover:scale-105 shadow-md shadow-primary/20" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Start a Project</button>
-            <button class="md:hidden p-2 rounded-lg text-on-surface hover:bg-surface transition-colors" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" onclick="toggleMobileMenu()">
+            <button class="lg:hidden p-2 rounded-lg text-on-surface hover:bg-surface transition-colors" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" onclick="toggleMobileMenu()">
                 <span class="material-symbols-outlined" id="mobileMenuIcon">menu</span>
             </button>
         </div>
     </nav>
-    <div class="md:hidden hidden glass-effect border-t border-outline" id="mobileMenu">
+    <div class="lg:hidden hidden glass-effect border-t border-outline" id="mobileMenu">
         <div class="flex flex-col px-6 py-4" aria-label="Mobile Navigation">
             <a class="py-3 font-medium text-on-surface-variant hover:text-primary transition-colors border-b border-outline" href="#products" onclick="toggleMobileMenu()">Services</a>
+            <a class="py-3 font-medium text-on-surface-variant hover:text-primary transition-colors border-b border-outline" href="#agents" onclick="toggleMobileMenu()">Agents</a>
             <a class="py-3 font-medium text-on-surface-variant hover:text-primary transition-colors border-b border-outline" href="#features" onclick="toggleMobileMenu()">Why IBrains</a>
             <a class="py-3 font-medium text-on-surface-variant hover:text-primary transition-colors border-b border-outline" href="#faq" onclick="toggleMobileMenu()">FAQ</a>
             <a class="py-3 font-medium text-on-surface-variant hover:text-primary transition-colors border-b border-outline sm:border-b-0" href="#contact" onclick="toggleMobileMenu()">Contact</a>
             <button class="sm:hidden mt-3 bg-primary text-white py-3 rounded-xl font-semibold text-sm hover:bg-primary-hover transition-all" onclick="toggleMobileMenu(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Start a Project</button>
+            <div class="flex items-center gap-3 mt-4 pt-4 border-t border-outline">
+                <a href="https://www.linkedin.com/company/ibrains-ai/" target="_blank" rel="noopener noreferrer" aria-label="IBrains on LinkedIn" class="w-10 h-10 rounded-full bg-[#0A66C2] flex items-center justify-center text-white hover:opacity-90 transition-opacity">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="https://wa.me/919390425742?text=Hi%20IBrains!%20I'd%20like%20to%20try%20one%20of%20your%20AI%20agents." target="_blank" rel="noopener noreferrer" aria-label="Chat with IBrains on WhatsApp" class="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center text-white hover:opacity-90 transition-opacity">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true"><path d="M12.001 2C6.478 2 2 6.478 2 12c0 1.86.5 3.6 1.375 5.099L2 22l4.978-1.353A9.94 9.94 0 0 0 12.001 22C17.523 22 22 17.523 22 12S17.523 2 12.001 2zm5.471 12.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.05-.52-.099-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.05 3.13 4.97 4.27 2.92 1.14 2.92.76 3.446.71.526-.05 1.706-.698 1.955-1.372.24-.653.24-1.213.173-1.372-.067-.16-.297-.198-.594-.347z"/></svg>
+                </a>
+            </div>
         </div>
     </div>
 </header>
@@ -273,12 +291,12 @@
     <section class="relative pt-40 pb-24 md:pt-48 md:pb-36 overflow-hidden bg-background" aria-labelledby="hero-title">
         <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10 grid md:grid-cols-2 items-center gap-16">
             <div class="max-w-2xl">
-                <span class="inline-block font-mono text-xs tracking-[0.25em] uppercase text-primary/80 mb-5 reveal-on-scroll">Voice &middot; IoT &middot; Mobile &middot; EdTech</span>
+                <span class="inline-block font-mono text-xs tracking-[0.25em] uppercase text-primary/80 mb-5 reveal-on-scroll">AI Automation Studio</span>
                 <h1 id="hero-title" class="font-display text-5xl md:text-6xl font-bold tracking-tight text-on-surface mb-6 reveal-on-scroll leading-[1.1]" style="transition-delay: 60ms;">
-                    IBrains builds the intelligence behind modern products.
+                    IBrains builds <span class="text-gradient bg-gradient-to-r from-primary via-violet to-primary">AI automation</span> that makes businesses run smarter.
                 </h1>
                 <p class="text-lg md:text-xl text-on-surface-variant mb-10 leading-relaxed reveal-on-scroll" style="transition-delay: 140ms;">
-                    We design and ship AI systems end to end: natural-sounding <strong class="text-on-surface font-semibold">voice agents</strong>, connected <strong class="text-on-surface font-semibold">IoT</strong> hardware, cross-platform <strong class="text-on-surface font-semibold">mobile apps</strong>, and <strong class="text-on-surface font-semibold">EduFlex</strong>, our adaptive learning platform.
+                    We design and ship AI automation end to end: natural-sounding <strong class="text-on-surface font-semibold">voice agents</strong>, connected <strong class="text-on-surface font-semibold">IoT</strong> hardware, cross-platform <strong class="text-on-surface font-semibold">mobile apps</strong>, and <strong class="text-on-surface font-semibold">EduFlex</strong>, our adaptive learning platform.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 reveal-on-scroll" style="transition-delay: 220ms;">
                     <button class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-primary/20 hover:-translate-y-1 hover:bg-primary-hover transition-all" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">
@@ -444,6 +462,126 @@
                     </div>
                 </article>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- Agents in Production -->
+    <section class="py-28 md:py-32 bg-background" id="agents" aria-labelledby="agents-title">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="mb-16 max-w-2xl reveal-on-scroll">
+                <span class="inline-block font-mono text-xs tracking-[0.25em] uppercase text-primary/80 mb-4">In Production</span>
+                <h2 id="agents-title" class="font-display text-4xl md:text-5xl font-bold tracking-tight mb-4 text-on-surface">Agents we've already built and shipped.</h2>
+                <p class="text-on-surface-variant text-lg md:text-xl">Every agent below is live, not a mockup &mdash; adopt one as-is, or we adapt it to fit your exact workflow.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <div class="bg-surface-container rounded-2xl p-6 border border-outline hover:border-primary/30 hover:shadow-lg transition-all reveal-on-scroll">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="w-12 h-12 bg-primary/10 flex items-center justify-center rounded-xl"><span class="material-symbols-outlined text-primary text-2xl">badge</span></div>
+                        <span class="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Live</span>
+                    </div>
+                    <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-primary/80">HR & Recruiting</span>
+                    <h3 class="font-display text-xl font-bold mt-1.5 mb-2 text-on-surface">HR Voice Agent</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Handles first-round HR conversations by voice &mdash; screening questions, policy queries, and scheduling &mdash; before a candidate reaches a recruiter's calendar.</p>
+                </div>
+
+                <div class="bg-surface-container rounded-2xl p-6 border border-outline hover:border-violet/30 hover:shadow-lg transition-all reveal-on-scroll" style="transition-delay: 40ms;">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="w-12 h-12 bg-violet/10 flex items-center justify-center rounded-xl"><span class="material-symbols-outlined text-violet text-2xl">psychology</span></div>
+                        <span class="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Live</span>
+                    </div>
+                    <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-violet/80">Recruiting</span>
+                    <h3 class="font-display text-xl font-bold mt-1.5 mb-2 text-on-surface">Technical Interviewer Agent</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Runs first-round technical interviews over voice, asking role-specific questions and adjusting follow-ups based on how the candidate answers.</p>
+                </div>
+
+                <div class="bg-surface-container rounded-2xl p-6 border border-outline hover:border-secondary/30 hover:shadow-lg transition-all reveal-on-scroll" style="transition-delay: 80ms;">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="w-12 h-12 bg-secondary/10 flex items-center justify-center rounded-xl"><span class="material-symbols-outlined text-secondary text-2xl">terminal</span></div>
+                        <span class="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Live</span>
+                    </div>
+                    <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-secondary/80">Recruiting</span>
+                    <h3 class="font-display text-xl font-bold mt-1.5 mb-2 text-on-surface">Coding Round Interviewer Agent</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Walks candidates through a live coding round, presenting the problem and probing their approach and reasoning as they work through it.</p>
+                </div>
+
+                <div class="bg-surface-container rounded-2xl p-6 border border-outline hover:border-accent/30 hover:shadow-lg transition-all reveal-on-scroll">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="w-12 h-12 bg-accent/10 flex items-center justify-center rounded-xl"><span class="material-symbols-outlined text-accent text-2xl">account_tree</span></div>
+                        <span class="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Live</span>
+                    </div>
+                    <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-accent/80">Recruiting</span>
+                    <h3 class="font-display text-xl font-bold mt-1.5 mb-2 text-on-surface">System Design Interview Agent</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Interviews candidates on system design, pushing on trade-offs and architecture decisions the way a senior engineer would in the room.</p>
+                </div>
+
+                <div class="bg-surface-container rounded-2xl p-6 border border-outline hover:border-primary/30 hover:shadow-lg transition-all reveal-on-scroll" style="transition-delay: 40ms;">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="w-12 h-12 bg-primary/10 flex items-center justify-center rounded-xl"><span class="material-symbols-outlined text-primary text-2xl">screen_share</span></div>
+                        <span class="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Live</span>
+                    </div>
+                    <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-primary/80">Screen Share</span>
+                    <h3 class="font-display text-xl font-bold mt-1.5 mb-2 text-on-surface">Screen Tracker Agent</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Watches a shared screen and talks through what it sees in real time &mdash; and clears up doubts conversationally the moment a question comes up.</p>
+                </div>
+
+                <div class="bg-surface-container rounded-2xl p-6 border border-outline hover:border-violet/30 hover:shadow-lg transition-all reveal-on-scroll" style="transition-delay: 80ms;">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="w-12 h-12 bg-violet/10 flex items-center justify-center rounded-xl"><span class="material-symbols-outlined text-violet text-2xl">house</span></div>
+                        <span class="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Live</span>
+                    </div>
+                    <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-violet/80">Real Estate</span>
+                    <h3 class="font-display text-xl font-bold mt-1.5 mb-2 text-on-surface">Real Estate Voice Agent</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Answers property questions and qualifies leads by voice, keeping the conversation going for real estate teams fielding calls all day.</p>
+                </div>
+
+                <div class="bg-surface-container rounded-2xl p-6 border border-outline hover:border-secondary/30 hover:shadow-lg transition-all reveal-on-scroll">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="w-12 h-12 bg-secondary/10 flex items-center justify-center rounded-xl"><span class="material-symbols-outlined text-secondary text-2xl">contacts</span></div>
+                        <span class="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Live</span>
+                    </div>
+                    <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-secondary/80">Sales & CRM</span>
+                    <h3 class="font-display text-xl font-bold mt-1.5 mb-2 text-on-surface">CRM Agent</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Takes calls, logs the conversation, and updates records directly in the CRM &mdash; so nothing falls through after the call ends.</p>
+                </div>
+
+                <div class="bg-surface-container rounded-2xl p-6 border border-outline hover:border-accent/30 hover:shadow-lg transition-all reveal-on-scroll" style="transition-delay: 40ms;">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="w-12 h-12 bg-accent/10 flex items-center justify-center rounded-xl"><span class="material-symbols-outlined text-accent text-2xl">medical_services</span></div>
+                        <span class="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Live</span>
+                    </div>
+                    <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-accent/80">Healthcare</span>
+                    <h3 class="font-display text-xl font-bold mt-1.5 mb-2 text-on-surface">Ortho Medical Agent</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Handles patient calls for orthopedic clinics: booking appointments, answering common questions, and flagging anything that needs urgent attention.</p>
+                </div>
+
+                <div class="bg-surface-container rounded-2xl p-6 border border-outline hover:border-primary/30 hover:shadow-lg transition-all reveal-on-scroll" style="transition-delay: 80ms;">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="w-12 h-12 bg-primary/10 flex items-center justify-center rounded-xl"><span class="material-symbols-outlined text-primary text-2xl">account_balance</span></div>
+                        <span class="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Live</span>
+                    </div>
+                    <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-primary/80">Finance</span>
+                    <h3 class="font-display text-xl font-bold mt-1.5 mb-2 text-on-surface">Loan Agent</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Talks callers through loan options and eligibility, and guides them step by step through the application by voice.</p>
+                </div>
+
+                <div class="bg-surface-container rounded-2xl p-6 border border-outline hover:border-violet/30 hover:shadow-lg transition-all reveal-on-scroll">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="w-12 h-12 bg-violet/10 flex items-center justify-center rounded-xl"><span class="material-symbols-outlined text-violet text-2xl">shield</span></div>
+                        <span class="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Live</span>
+                    </div>
+                    <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-violet/80">Insurance</span>
+                    <h3 class="font-display text-xl font-bold mt-1.5 mb-2 text-on-surface">Insurance Agent</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Answers policy questions, helps callers compare coverage, and walks them through claims or renewals without a hold queue.</p>
+                </div>
+
+            </div>
+            <div class="mt-16 text-center reveal-on-scroll">
+                <p class="text-on-surface-variant text-lg mb-6">Need one of these for your business &mdash; or something custom?</p>
+                <button class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-primary/20 hover:-translate-y-1 hover:bg-primary-hover transition-all" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                    Start a Project
+                </button>
             </div>
         </div>
     </section>
@@ -620,12 +758,21 @@
         </div>
         <nav class="flex flex-wrap gap-x-8 gap-y-3 text-sm text-on-surface-variant" aria-label="Footer">
             <a class="hover:text-primary transition-colors" href="#products">Services</a>
+            <a class="hover:text-primary transition-colors" href="#agents">Agents</a>
             <a class="hover:text-primary transition-colors" href="#features">Why IBrains</a>
             <a class="hover:text-primary transition-colors" href="#faq">FAQ</a>
             <a class="hover:text-primary transition-colors" href="#contact">Contact</a>
         </nav>
         <div class="flex items-center gap-2 hover:text-primary transition-colors cursor-pointer text-sm text-on-surface-variant" onclick="window.location.href='mailto:ibrains.it@gmail.com'">
             <span class="material-symbols-outlined text-lg">mail</span> ibrains.it@gmail.com
+        </div>
+        <div class="flex items-center gap-3">
+            <a href="https://www.linkedin.com/company/ibrains-ai/" target="_blank" rel="noopener noreferrer" aria-label="IBrains on LinkedIn" class="w-10 h-10 rounded-full bg-[#0A66C2] flex items-center justify-center text-white hover:opacity-90 transition-opacity">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://wa.me/919390425742?text=Hi%20IBrains!%20I'd%20like%20to%20try%20one%20of%20your%20AI%20agents." target="_blank" rel="noopener noreferrer" aria-label="Chat with IBrains on WhatsApp" class="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center text-white hover:opacity-90 transition-opacity">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true"><path d="M12.001 2C6.478 2 2 6.478 2 12c0 1.86.5 3.6 1.375 5.099L2 22l4.978-1.353A9.94 9.94 0 0 0 12.001 22C17.523 22 22 17.523 22 12S17.523 2 12.001 2zm5.471 12.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.05-.52-.099-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.05 3.13 4.97 4.27 2.92 1.14 2.92.76 3.446.71.526-.05 1.706-.698 1.955-1.372.24-.653.24-1.213.173-1.372-.067-.16-.297-.198-.594-.347z"/></svg>
+            </a>
         </div>
     </div>
     <div class="max-w-7xl mx-auto mt-10 pt-6 border-t border-outline text-xs text-on-surface-variant/70">
