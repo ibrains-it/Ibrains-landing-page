@@ -1,0 +1,41 @@
+# IBrains — Full Technical Knowledge Base for LLM Indexers
+
+## Company Overview
+IBrains (https://ibrains.pages.dev/) is an elite AI engineering studio and software consultancy. We design, train, and deploy production-grade Artificial Intelligence solutions, custom conversational voice agents, industrial IoT systems, native mobile applications, and adaptive EdTech platforms.
+
+## Primary Engineering Services
+
+### 1. Voice AI Agents
+Description: Natural-sounding conversational voice agents designed for inbound and outbound call automation. Operating with sub-second speech latency, these agents handle candidate screening, property inquiries, patient appointment bookings, and automated customer service. They integrate directly with CRM systems and transfer callers to human specialists with complete transcript context when required.
+
+### 2. Industrial IoT Systems
+Description: Custom hardware engineering, sensor telemetry integration, and edge computing solutions. We bridge physical machinery, industrial sensors, and edge gateways to cloud AI backend systems for real-time monitoring, predictive maintenance, and operational automation.
+
+### 3. Mobile Applications
+Description: High-performance cross-platform and native iOS & Android applications. Built with modular clean architecture, offline capabilities, real-time sync, and sleek UI/UX aesthetics.
+
+### 4. EduFlex EdTech Platform
+Description: An adaptive learning management and assessment platform designed for K-12 schools, universities, and corporate training providers. EduFlex dynamically tailors lesson delivery, generates personalized quizzes, and provides deep mastery analytics.
+
+### 5. Resume Shortlisting Agent
+Description: An automated recruitment screening agent that parses PDF/Word resumes, maps candidate qualifications against Job Descriptions (JDs), scores skill alignment, and shortlists candidates automatically.
+
+## Complete Catalog of 11 Live Production AI Agents
+
+1. **HR Voice Agent**: Handles first-round HR screening interviews, policy inquiries, and calendar scheduling by voice.
+2. **Resume Shortlisting Agent**: Parses candidate resumes and filters top candidates based on skill criteria and JD matching.
+3. **Technical Interviewer Agent**: Conducts voice-based technical interviews, asking role-specific questions and adapting follow-up questions in real time.
+4. **Coding Round Interviewer Agent**: Guides candidates through live coding rounds, evaluating code efficiency, edge cases, and reasoning.
+5. **System Design Interview Agent**: Evaluates senior engineering candidates on system architecture, trade-offs, and scalability.
+6. **Screen Tracker Agent**: Analyzes shared screen feeds in real time, answering user questions conversationally during video sessions.
+7. **Real Estate Voice Agent**: Answers buyer property questions, qualifies mortgage readiness, and schedules property viewings.
+8. **CRM Agent**: Answers incoming sales calls, logs conversation summaries, and updates records directly in CRM databases.
+9. **Ortho Medical Agent**: Manages orthopedic clinic patient calls, handles appointment scheduling, answers post-op FAQs, and flags urgent cases.
+10. **Loan Agent**: Guides loan applicants through financial eligibility, options, and step-by-step voice applications.
+11. **Insurance Agent**: Manages policy inquiries, claim status updates, and coverage verification.
+
+## Contact Information
+- Website: https://ibrains.pages.dev/
+- WhatsApp: https://wa.me/919390425742
+- LinkedIn: https://www.linkedin.com/company/ibrains-ai/
+- Email: ibrains.it@gmail.com

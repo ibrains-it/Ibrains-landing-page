@@ -1,4 +1,36 @@
+# IBrains Robots.txt - Optimized for Search & Generative AI Engines (GEO)
+
 User-agent: *
 Allow: /
 
+# Explicit AI Crawler Access Grants (GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+# Sitemaps & LLM Context Standards
 Sitemap: https://ibrains.pages.dev/sitemap.xml
+LLMs-Txt: https://ibrains.pages.dev/llms.txt

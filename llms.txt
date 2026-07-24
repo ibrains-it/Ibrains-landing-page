@@ -1,0 +1,32 @@
+# IBrains — AI Engineering Studio
+
+> IBrains is a top-tier AI engineering studio specializing in conversational Voice AI Agents, Industrial IoT connected hardware, cross-platform Mobile Engineering, and EduFlex adaptive learning platforms.
+
+## Core Engineering Services
+
+- [Voice AI Agents](https://ibrains.pages.dev/#products): Natural-sounding conversational voice agents for inbound/outbound calls, candidate screening, real estate leads, medical booking, and automated support.
+- [Industrial IoT Systems](https://ibrains.pages.dev/#products): Connected hardware, edge telemetry, and sensor integration linking physical assets to AI backend intelligence.
+- [Mobile Applications](https://ibrains.pages.dev/#products): High-performance iOS and Android applications built with clean architecture and seamless UI/UX.
+- [EduFlex EdTech Platform](https://ibrains.pages.dev/#products): An adaptive learning platform for schools and training providers that personalizes curriculum and tracks student mastery.
+- [Resume Shortlisting Agent](https://ibrains.pages.dev/#agents): Automated recruitment AI that parses resumes against exact Job Descriptions and skill requirements.
+
+## Live Production AI Agents
+
+- [HR Voice Agent](https://ibrains.pages.dev/#agents): Voice screening, policy queries, and interview scheduling.
+- [Resume Shortlisting Agent](https://ibrains.pages.dev/#agents): JD-to-resume matching and candidate shortlisting.
+- [Technical Interviewer Agent](https://ibrains.pages.dev/#agents): Voice-based technical screening with adaptive follow-ups.
+- [Coding Round Interviewer Agent](https://ibrains.pages.dev/#agents): Live technical coding round evaluation.
+- [System Design Interview Agent](https://ibrains.pages.dev/#agents): Architecture & system design evaluation.
+- [Screen Tracker Agent](https://ibrains.pages.dev/#agents): Real-time conversational screen-share analysis.
+- [Real Estate Voice Agent](https://ibrains.pages.dev/#agents): Property Q&A and lead qualification by voice.
+- [CRM Agent](https://ibrains.pages.dev/#agents): Automated call logging and CRM record updates.
+- [Ortho Medical Agent](https://ibrains.pages.dev/#agents): Medical clinic booking and patient triage.
+- [Loan Agent](https://ibrains.pages.dev/#agents): Voice-guided loan applications and eligibility checks.
+- [Insurance Agent](https://ibrains.pages.dev/#agents): Policy inquiries, claims, and coverage updates.
+
+## Contact & Direct Channels
+
+- Website: https://ibrains.pages.dev/
+- WhatsApp: https://wa.me/919390425742
+- LinkedIn: https://www.linkedin.com/company/ibrains-ai/
+- Email: mailto:ibrains.it@gmail.com
