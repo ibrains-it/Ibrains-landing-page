@@ -899,16 +899,39 @@
                     <div class="grid sm:grid-cols-2 gap-7">
                         <div class="space-y-2">
                             <label class="block text-sm font-semibold text-on-surface-variant ml-1" for="contactName">Full Name</label>
-                            <input class="w-full bg-surface border border-outline rounded-2xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-on-surface-variant/50" id="contactName" name="name" required placeholder="Jordan Lee" type="text"/>
+                            <input class="w-full bg-surface border border-outline rounded-2xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-on-surface-variant/50" id="contactName" name="Full Name" required placeholder="Jordan Lee" type="text"/>
                         </div>
                         <div class="space-y-2">
-                            <label class="block text-sm font-semibold text-on-surface-variant ml-1" for="contactEmail">Email</label>
-                            <input class="w-full bg-surface border border-outline rounded-2xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-on-surface-variant/50" id="contactEmail" name="email" required placeholder="jordan@company.com" type="email"/>
+                            <label class="block text-sm font-semibold text-on-surface-variant ml-1" for="contactEmail">Email Address</label>
+                            <input class="w-full bg-surface border border-outline rounded-2xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-on-surface-variant/50" id="contactEmail" name="Email Address" required placeholder="jordan@company.com" type="email"/>
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-7">
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold text-on-surface-variant ml-1" for="contactService">Service Interested In</label>
+                            <select class="w-full bg-surface border border-outline rounded-2xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all cursor-pointer" id="contactService" name="Service Interested In">
+                                <option value="Voice AI Agents">Voice AI Agents</option>
+                                <option value="Industrial IoT Systems">Industrial IoT Systems</option>
+                                <option value="Mobile Applications">Mobile Applications</option>
+                                <option value="EduFlex EdTech Platform">EduFlex EdTech Platform</option>
+                                <option value="Resume Shortlisting Agent">Resume Shortlisting Agent</option>
+                                <option value="Live Production Agents">Production AI Agents</option>
+                                <option value="Custom Engineering">Custom Engineering / Other</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold text-on-surface-variant ml-1" for="contactBudget">Estimated Budget (Optional)</label>
+                            <select class="w-full bg-surface border border-outline rounded-2xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all cursor-pointer" id="contactBudget" name="Project Budget">
+                                <option value="Discovery Call">Discovery Call / Flexible</option>
+                                <option value="< $5,000">Below $5,000</option>
+                                <option value="$5,000 - $15,000">$5,000 - $15,000</option>
+                                <option value="$15,000+ Enterprise">$15,000+ / Enterprise</option>
+                            </select>
                         </div>
                     </div>
                     <div class="space-y-2">
-                        <label class="block text-sm font-semibold text-on-surface-variant ml-1" for="contactMessage">Project Details</label>
-                        <textarea class="w-full bg-surface border border-outline rounded-2xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-on-surface-variant/50" id="contactMessage" name="message" required rows="4" placeholder="Tell us what you're building and where you'd like help."></textarea>
+                        <label class="block text-sm font-semibold text-on-surface-variant ml-1" for="contactMessage">Project Details & Requirements</label>
+                        <textarea class="w-full bg-surface border border-outline rounded-2xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-on-surface-variant/50" id="contactMessage" name="Project Details" required rows="4" placeholder="Tell us what you're building and where you'd like help."></textarea>
                     </div>
                     <button class="w-full bg-primary text-white font-bold py-5 rounded-2xl hover:bg-primary-hover transition-all shadow-md shadow-primary/30 active:scale-[0.98]" id="submitBtn" type="submit">
                         Send Message
