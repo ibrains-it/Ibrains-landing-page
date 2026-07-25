@@ -937,6 +937,11 @@
                         Send Message
                     </button>
                 </form>
+                <!-- Netlify Form for Live Chat Transcripts -->
+                <form id="chatTranscriptForm" name="chat-transcript" data-netlify="true" method="POST" action="/#contact" class="hidden">
+                    <input type="hidden" name="form-name" value="chat-transcript" />
+                    <input type="hidden" name="Full Conversation Transcript" id="chatTranscriptField" />
+                </form>
             </div>
         </div>
     </section>
@@ -1119,21 +1124,73 @@
         const sendBtn = document.getElementById('chatSend');
         const history = [];
 
+        function formatMarkdown(text) {
+            if (!text) return '';
+            let html = text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+
+            // Format markdown links [Text](URL) as styled interactive buttons/links
+            html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, function(match, label, url) {
+                const isWhatsApp = url.includes('wa.me') || label.toLowerCase().includes('whatsapp');
+                const bgClass = isWhatsApp 
+                    ? 'bg-[#25D366] text-white hover:opacity-90 shadow-sm shadow-[#25D366]/20' 
+                    : 'bg-primary text-white hover:bg-primary-hover shadow-sm shadow-primary/20';
+                return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-bold text-xs ${bgClass} transition-all my-1 align-middle no-underline !text-white">${label}</a>`;
+            });
+
+            // Format **bold**
+            html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+
+            // Format bullet points
+            html = html.replace(/(?:^|\n)[•\-]\s*(.+)/g, '<div class="flex items-start gap-2 my-1"><span class="text-primary font-bold">•</span><span>$1</span></div>');
+
+            html = html.replace(/\n\n/g, '<div class="h-1.5"></div>');
+            html = html.replace(/\n/g, '<br/>');
+
+            return html;
+        }
+
+        function syncTranscriptToNetlify(hist) {
+            if (!hist || hist.length < 2) return;
+            try {
+                const formatted = hist.map(m => `[${m.role.toUpperCase()}]: ${m.content}`).join('\n\n----------------------------------------\n\n');
+                const field = document.getElementById('chatTranscriptField');
+                if (field) field.value = formatted;
+
+                const formData = new FormData();
+                formData.append('form-name', 'chat-transcript');
+                formData.append('Full Conversation Transcript', formatted);
+
+                fetch('/', {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString()
+                }).catch(() => {});
+            } catch (err) {}
+        }
+
         function addBubble(role, text) {
             const wrap = document.createElement('div');
             wrap.className = role === 'user' ? 'flex justify-end' : 'flex justify-start';
             const bubble = document.createElement('div');
             bubble.className = role === 'user'
-                ? 'max-w-[80%] bg-primary text-white rounded-2xl rounded-tr-sm px-4 py-2.5 text-sm leading-relaxed'
-                : 'max-w-[80%] bg-surface border border-outline text-on-surface rounded-2xl rounded-tl-sm px-4 py-2.5 text-sm leading-relaxed';
-            bubble.textContent = text;
+                ? 'max-w-[85%] bg-primary text-white rounded-2xl rounded-tr-sm px-4 py-2.5 text-sm leading-relaxed'
+                : 'max-w-[85%] bg-surface border border-outline text-on-surface rounded-2xl rounded-tl-sm px-4 py-2.5 text-sm leading-relaxed';
+            
+            if (role === 'assistant' && text !== '…') {
+                bubble.innerHTML = formatMarkdown(text);
+            } else {
+                bubble.textContent = text;
+            }
             wrap.appendChild(bubble);
             messagesEl.appendChild(wrap);
             messagesEl.scrollTop = messagesEl.scrollHeight;
             return wrap;
         }
 
-        addBubble('assistant', "Hi! I'm the IBrains assistant. Ask me about our agents, services, or how we could help your business.");
+        addBubble('assistant', "Hi! I'm the **IBrains Solution Consultant**. Ask me about our Voice AI Agents, Industrial IoT, Mobile Apps, EduFlex EdTech, or our 11 live production agents!");
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -1162,6 +1219,8 @@
                 } else {
                     addBubble('assistant', data.reply);
                     history.push({ role: 'assistant', content: data.reply });
+                    // Sync conversation transcript to email via Netlify
+                    syncTranscriptToNetlify(history);
                 }
             } catch (err) {
                 typingEl.remove();
