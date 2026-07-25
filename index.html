@@ -1102,12 +1102,13 @@
                 const data = await res.json().catch(() => ({}));
                 typingEl.remove();
                 if (!res.ok || !data.reply) {
-                    addBubble('assistant', "Sorry, I'm having trouble connecting right now. Reach us directly on WhatsApp or email — links in the footer.");
+                    const errDetail = data.error || "Sorry, I'm having trouble connecting right now. Reach us directly on WhatsApp or email — links in the footer.";
+                    addBubble('assistant', errDetail);
                 } else {
                     addBubble('assistant', data.reply);
                     history.push({ role: 'assistant', content: data.reply });
                 }
-            } catch {
+            } catch (err) {
                 typingEl.remove();
                 addBubble('assistant', "Sorry, I'm having trouble connecting right now. Reach us directly on WhatsApp or email — links in the footer.");
             } finally {
