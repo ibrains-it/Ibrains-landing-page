@@ -1,0 +1,39 @@
+{
+  "name": "03_outreach_approval_queue",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": { "interval": [{ "field": "hours", "hoursInterval": 1 }] }
+      },
+      "name": "Hourly Schedule Node",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [100, 300]
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "table": "opportunities_v2",
+        "filters": [{ "field": "priority", "operator": "equal", "value": "HOT" }]
+      },
+      "name": "Fetch HOT Opportunities Node",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [300, 300]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "table": "outreach_messages_v2"
+      },
+      "name": "Stage Outbound Message Node",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [500, 300]
+    }
+  ],
+  "connections": {
+    "Hourly Schedule Node": { "main": [[{ "node": "Fetch HOT Opportunities Node", "type": "main", "index": 0 }]] },
+    "Fetch HOT Opportunities Node": { "main": [[{ "node": "Stage Outbound Message Node", "type": "main", "index": 0 }]] }
+  }
+}
