@@ -894,20 +894,21 @@
                 </div>
             </div>
             <div class="relative reveal-on-scroll" style="transition-delay: 80ms;">
-                <form class="bg-surface-container p-8 md:p-14 rounded-3xl shadow-xl shadow-primary/5 border border-outline space-y-7" id="contactForm" onsubmit="handleContactSubmit(event)">
+                <form class="bg-surface-container p-8 md:p-14 rounded-3xl shadow-xl shadow-primary/5 border border-outline space-y-7" id="contactForm" name="contact" data-netlify="true" method="POST" action="/#contact" onsubmit="handleContactSubmit(event)">
+                    <input type="hidden" name="form-name" value="contact" />
                     <div class="grid sm:grid-cols-2 gap-7">
                         <div class="space-y-2">
                             <label class="block text-sm font-semibold text-on-surface-variant ml-1" for="contactName">Full Name</label>
-                            <input class="w-full bg-surface border border-outline rounded-2xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-on-surface-variant/50" id="contactName" required placeholder="Jordan Lee" type="text"/>
+                            <input class="w-full bg-surface border border-outline rounded-2xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-on-surface-variant/50" id="contactName" name="name" required placeholder="Jordan Lee" type="text"/>
                         </div>
                         <div class="space-y-2">
                             <label class="block text-sm font-semibold text-on-surface-variant ml-1" for="contactEmail">Email</label>
-                            <input class="w-full bg-surface border border-outline rounded-2xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-on-surface-variant/50" id="contactEmail" required placeholder="jordan@company.com" type="email"/>
+                            <input class="w-full bg-surface border border-outline rounded-2xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-on-surface-variant/50" id="contactEmail" name="email" required placeholder="jordan@company.com" type="email"/>
                         </div>
                     </div>
                     <div class="space-y-2">
                         <label class="block text-sm font-semibold text-on-surface-variant ml-1" for="contactMessage">Project Details</label>
-                        <textarea class="w-full bg-surface border border-outline rounded-2xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-on-surface-variant/50" id="contactMessage" required rows="4" placeholder="Tell us what you're building and where you'd like help."></textarea>
+                        <textarea class="w-full bg-surface border border-outline rounded-2xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-on-surface-variant/50" id="contactMessage" name="message" required rows="4" placeholder="Tell us what you're building and where you'd like help."></textarea>
                     </div>
                     <button class="w-full bg-primary text-white font-bold py-5 rounded-2xl hover:bg-primary-hover transition-all shadow-md shadow-primary/30 active:scale-[0.98]" id="submitBtn" type="submit">
                         Send Message
