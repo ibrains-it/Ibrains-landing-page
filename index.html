@@ -1163,13 +1163,20 @@
                 formData.append('form-name', 'chat-transcript');
                 formData.append('Full Conversation Transcript', formatted);
 
-                fetch('/', {
-                    method: 'POST',
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: new URLSearchParams(formData).toString()
-                }).catch(() => {});
+                if (navigator.sendBeacon) {
+                    const body = new URLSearchParams(formData);
+                    navigator.sendBeacon('/', body);
+                } else {
+                    fetch('/', {
+                        method: 'POST',
+                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                        body: new URLSearchParams(formData).toString()
+                    }).catch(() => {});
+                }
             } catch (err) {}
         }
+
+        window.addEventListener('beforeunload', () => syncTranscriptToNetlify(history));
 
         function addBubble(role, text) {
             const wrap = document.createElement('div');
